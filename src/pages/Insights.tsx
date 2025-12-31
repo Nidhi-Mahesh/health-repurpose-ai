@@ -46,7 +46,7 @@ const Insights = () => {
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Page Header */}
       <div className="mb-2">
-        <h1 className="text-2xl font-semibold text-foreground">Insights</h1>
+        <h1 className="text-3xl font-bold text-foreground">Insights</h1>
         <p className="text-muted-foreground text-sm mt-1">
           Analytics and performance metrics for contextual review
         </p>
@@ -54,10 +54,10 @@ const Insights = () => {
 
       {/* Summary Cards */}
       <div className="grid md:grid-cols-4 gap-4">
-        <Card className="card-elevated animate-fade-in">
+        <Card className="card-elevated transition-opacity duration-200">
           <CardContent className="pt-6">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center">
+              <div className="w-12 h-12 rounded-md bg-accent flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-primary" />
               </div>
               <div>
@@ -70,10 +70,10 @@ const Insights = () => {
           </CardContent>
         </Card>
 
-        <Card className="card-elevated animate-fade-in">
+        <Card className="card-elevated transition-opacity duration-200">
           <CardContent className="pt-6">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-md bg-success/10 flex items-center justify-center">
                 <BarChart3 className="w-6 h-6 text-success" />
               </div>
               <div>
@@ -86,10 +86,10 @@ const Insights = () => {
           </CardContent>
         </Card>
 
-        <Card className="card-elevated animate-fade-in">
+        <Card className="card-elevated transition-opacity duration-200">
           <CardContent className="pt-6">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-warning/10 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-md bg-warning/10 flex items-center justify-center">
                 <Clock className="w-6 h-6 text-warning" />
               </div>
               <div>
@@ -102,10 +102,10 @@ const Insights = () => {
           </CardContent>
         </Card>
 
-        <Card className="card-elevated animate-fade-in">
+        <Card className="card-elevated transition-opacity duration-200">
           <CardContent className="pt-6">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-md bg-destructive/10 flex items-center justify-center">
                 <AlertTriangle className="w-6 h-6 text-destructive" />
               </div>
               <div>
@@ -122,7 +122,7 @@ const Insights = () => {
       {/* Charts Row */}
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Confidence Improvement Chart */}
-        <Card className="card-elevated animate-fade-in">
+        <Card className="card-elevated transition-opacity duration-200">
           <CardHeader className="pb-2">
             <CardTitle className="text-lg font-semibold">
               Confidence Score Improvement
@@ -174,7 +174,7 @@ const Insights = () => {
         </Card>
 
         {/* Feasibility Issues Pie Chart */}
-        <Card className="card-elevated animate-fade-in">
+        <Card className="card-elevated transition-opacity duration-200">
           <CardHeader className="pb-2">
             <CardTitle className="text-lg font-semibold">
               Most Common Feasibility Issues

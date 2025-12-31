@@ -12,6 +12,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { exportToCsv } from "@/lib/utils";
+import { toast } from "sonner";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -123,15 +125,46 @@ const Hypotheses = () => {
     return matchesSearch && matchesStatus;
   });
 
+  const handleExport = () => {
+    const rows = filteredHypotheses.map((h) => ({
+      ID: h.id,
+      "Drug Name": h.drugName,
+      "Target Disease": h.targetDisease,
+      Source: h.source,
+      "Evidence Strength": `${h.confidence}%`,
+      "Evidence Status":
+        h.status === "awaiting"
+          ? "Context Pending"
+          : h.status === "supported"
+          ? "Evidence Aligned"
+          : "Feasibility concerns",
+      Mechanism: h.mechanism,
+      "Paper Count": h.paperCount,
+    }));
+
+    if (rows.length === 0) {
+      // show a simple notification
+      toast("No hypotheses to export");
+      return;
+    }
+
+    exportToCsv(
+      "ai-generated_repurposing_hypotheses.csv",
+      rows,
+      "AI-Generated Repurposing Hypotheses"
+    );
+    toast.success("Export started — check your downloads folder");
+  };
+
   return (
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Page Header */}
       <div className="mb-2">
-        <h1 className="text-2xl font-semibold text-foreground">
+        <h1 className="text-3xl font-bold text-foreground">
           AI Hypotheses
         </h1>
         <p className="text-muted-foreground text-sm mt-1">
-          Browse and manage all AI-generated drug repurposing hypotheses
+          Browse and manage AI-suggested repurposing hypotheses
         </p>
       </div>
 
@@ -195,9 +228,9 @@ const Hypotheses = () => {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <Button variant="outline" className="gap-2">
+        <Button variant="outline" className="gap-2" onClick={handleExport}>
           <ExternalLink className="w-4 h-4" />
-          Export All
+          Export dataset
         </Button>
       </div>
 
@@ -206,7 +239,7 @@ const Hypotheses = () => {
         {filteredHypotheses.map((hypothesis, index) => (
           <Card
             key={hypothesis.id}
-            className="card-elevated-hover animate-fade-in cursor-pointer"
+            className={`card-elevated-hover animate-fade-in cursor-pointer ${index % 2 === 0 ? 'pt-5' : 'pt-6'}`}
             style={{ animationDelay: `${index * 50}ms` }}
           >
             <CardHeader className="pb-3">
@@ -261,7 +294,7 @@ const Hypotheses = () => {
         <div className="text-center py-12">
           <FlaskConical className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
           <p className="text-muted-foreground">
-            No hypotheses match your filters
+            No hypotheses match these filters
           </p>
         </div>
       )}

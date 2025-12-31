@@ -39,7 +39,7 @@ const comparisonData: ComparisonMetric[] = [
 
 const ComparisonPanel = () => {
   return (
-    <Card className="card-elevated animate-fade-in">
+    <Card className="card-elevated transition-opacity duration-200">
       <CardHeader className="pb-3">
         <CardTitle className="text-lg font-semibold flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">

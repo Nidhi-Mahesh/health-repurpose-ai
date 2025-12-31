@@ -105,12 +105,20 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
   }
+
+  h1 {
+    @apply text-3xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-xl font-semibold;
+  }
 }
 
 @layer components {
   .card-elevated {
-    @apply bg-card rounded-lg border border-border;
-    box-shadow: var(--shadow-md);
+    @apply bg-card rounded-md border border-border;
+    box-shadow: var(--shadow-sm);
   }
 
   .card-elevated-hover {
@@ -118,7 +126,7 @@
   }
 
   .card-elevated-hover:hover {
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
   }
 
   .badge-status {

@@ -2,6 +2,8 @@ import { ExternalLink, FlaskConical } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { exportToCsv } from "@/lib/utils";
+import { toast } from "sonner";
 
 interface Hypothesis {
   id: string;
@@ -83,8 +85,35 @@ const ConfidenceBar = ({ confidence }: { confidence: number }) => {
 };
 
 const HypothesesTable = () => {
+  const handleExport = () => {
+    const rows = mockHypotheses.map((h) => ({
+      ID: h.id,
+      "Drug Name": h.drugName,
+      Source: h.source,
+      "Evidence Strength": `${h.confidence}%`,
+      "Evidence Status":
+        h.status === "awaiting"
+          ? "Context Pending"
+          : h.status === "supported"
+          ? "Evidence Aligned"
+          : "Feasibility concerns",
+    }));
+
+    if (rows.length === 0) {
+      toast("No hypotheses to export");
+      return;
+    }
+
+    exportToCsv(
+      "ai-generated_repurposing_hypotheses.csv",
+      rows,
+      "AI-Generated Repurposing Hypotheses"
+    );
+    toast.success("Export started — check your downloads folder");
+  };
+
   return (
-    <Card className="card-elevated animate-fade-in">
+    <Card className="card-elevated transition-opacity duration-200">
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <CardTitle className="text-lg font-semibold flex items-center gap-2">
@@ -93,7 +122,7 @@ const HypothesesTable = () => {
             </div>
             AI-Generated Repurposing Hypotheses
           </CardTitle>
-          <Button variant="outline" size="sm" className="gap-2">
+          <Button variant="outline" size="sm" className="gap-2" onClick={handleExport}>
             <ExternalLink className="w-4 h-4" />
             Export
           </Button>

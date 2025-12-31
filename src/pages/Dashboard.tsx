@@ -22,7 +22,7 @@ const Dashboard = () => {
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Page Header */}
       <div className="mb-2">
-        <h1 className="text-2xl font-semibold text-foreground">
+        <h1 className="text-3xl font-bold text-foreground">
           Research Dashboard
         </h1>
         <p className="text-muted-foreground text-sm mt-1">
@@ -42,7 +42,9 @@ const Dashboard = () => {
         <ValidationRequestPanel />
 
         {/* Section D: Before/After Comparison */}
-        <ComparisonPanel />
+        <div className="mt-2">
+          <ComparisonPanel />
+        </div>
       </div>
     </div>
   );

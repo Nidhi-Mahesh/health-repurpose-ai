@@ -82,7 +82,7 @@ const ClinicianValidation = () => {
       </div>
 
       {/* Hypothesis Summary (Read-only) */}
-      <Card className="card-elevated animate-fade-in">
+      <Card className="card-elevated transition-opacity duration-200">
         <CardHeader className="pb-3">
           <CardTitle className="text-lg font-semibold">
             Hypothesis Summary
@@ -144,7 +144,7 @@ const ClinicianValidation = () => {
       </Card>
 
       {/* Validation Questions */}
-      <Card className="card-elevated animate-fade-in">
+      <Card className="card-elevated transition-opacity duration-200">
         <CardHeader className="pb-3">
           <CardTitle className="text-lg font-semibold">
             Contextual Review Questions
