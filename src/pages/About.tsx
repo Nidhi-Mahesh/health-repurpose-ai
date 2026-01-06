@@ -94,7 +94,7 @@ const About = () => {
     <div className="p-6 space-y-6 max-w-5xl mx-auto">
       {/* Page Header */}
       <div className="mb-2">
-        <h1 className="text-2xl font-semibold text-foreground">
+        <h1 className="text-3xl font-bold text-foreground">
           About ElaraX
         </h1>
         <p className="text-muted-foreground text-sm mt-1">
@@ -104,7 +104,7 @@ const About = () => {
       </div>
 
       {/* Mission Card */}
-      <Card className="card-elevated animate-fade-in border-l-4 border-l-primary">
+      <Card className="card-elevated transition-opacity duration-200 border-l-4 border-l-primary">
         <CardContent className="py-6">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shrink-0">
@@ -131,7 +131,7 @@ const About = () => {
           {principles.map((principle, index) => (
             <Card
               key={principle.title}
-              className="card-elevated animate-fade-in"
+              className="card-elevated transition-opacity duration-200"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardContent className="py-5">

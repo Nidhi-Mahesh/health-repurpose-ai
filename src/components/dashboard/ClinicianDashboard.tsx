@@ -142,7 +142,7 @@ const ClinicianDashboard = ({ selectedDisease }: ClinicianDashboardProps) => {
     <div className="p-6 space-y-6 max-w-7xl mx-auto">
       {/* Page Header */}
       <div className="mb-2">
-        <h1 className="text-2xl font-semibold text-foreground">
+        <h1 className="text-3xl font-bold text-foreground">
           Domain Expert Dashboard
         </h1>
         <p className="text-muted-foreground text-sm mt-1">
@@ -433,8 +433,7 @@ const ClinicianDashboard = ({ selectedDisease }: ClinicianDashboardProps) => {
                   Select a Contextual Review Request
                 </h3>
                 <p className="text-muted-foreground text-sm max-w-md mx-auto">
-                  Choose a pending contextual review request from the list on the left
-                  to review the hypothesis and provide your domain expert feedback.
+                  Choose a pending contextual review from the list on the left to examine the hypothesis and provide your domain expert feedback.
                 </p>
               </CardContent>
             </Card>

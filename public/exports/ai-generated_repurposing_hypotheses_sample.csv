@@ -1,0 +1,8 @@
+AI-Generated Repurposing Hypotheses
+
+"ID","Drug Name","Source","Evidence Strength","Evidence Status"
+"1","Chloroquine","literature","78%","Evidence Aligned"
+"2","Ivermectin","trial","65%","Context Pending"
+"3","Ribavirin","literature","42%","Feasibility concerns"
+"4","Favipiravir","trial","71%","Context Pending"
+"5","Sofosbuvir","literature","58%","Evidence Aligned"
